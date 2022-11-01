@@ -122,7 +122,7 @@ if (props.main) {
         itemStyle: {
           color: ChartColor[0].mainColor,
         },
-        progress: {
+        progress: { 
           show: true,
           width: Chartwidth*0.26,
         },
