@@ -1,0 +1,359 @@
+:root {
+  --container-color: #323745;
+  --title-color: #fff;
+  --top-client-table: #1e222b;
+  --title-back-color: #1e222b;
+}
+[data-theme="light"] {
+  --container-color: #fff;
+  --title-color: #242731;
+  --top-client-table: #d3d3d3;
+  --title-back-color: #c0c0c0;
+}
+.f-div0{
+  width: 100%;
+  height: 6vh;
+  cursor: pointer;
+}
+.container {
+  background-color: var(--container-color);
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0%;
+  overflow: hidden;
+}
+.sm-card-container {
+  background-color: var(--container-color);
+  height: 49%;
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
+  align-items: center;
+  overflow: hidden;
+}
+.title {
+  color: var(--title-color);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  padding-top: 5px;
+  width: 100%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: var(--title-back-color);
+}
+.title span {
+  font-weight: normal;
+}
+.sm-title span {
+  font-weight: normal;
+}
+.sm-title {
+  background-color: var(--title-back-color);
+  color: var(--title-color);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  padding-top: 5px;
+}
+.card-money {
+  text-align: center;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  color: var(--title-color);
+  font-size: 17px;
+  align-items: center;
+  margin-top: 17px;
+}
+
+.ul-top-client {
+  background-color: var(--top-client-table);
+  border-radius: 15px;
+}
+.ul-top-client-label {
+  color: var(--title-color);
+  font-weight: 600;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  width: 100%;
+  margin-left: 0.3rem;
+}
+.li-top-client {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom: 1px rgba(128, 128, 128, 0.685) solid;
+}
+.li-top-client :hover {
+  background-color: #066292;
+}
+
+.top-clients-label {
+  border-radius: 100px;
+  color: #747474;
+  margin-left: 8px;
+  text-align: center;
+  font-size: 9px;
+  width: 28px;
+}
+.ul-top-client-label-money {
+  border-radius: 100px;
+  background-color: rgba(199, 250, 148, 0.918);
+  color: green;
+  margin-right: 5px;
+  text-align: center;
+  padding: 1px 10px;
+  width: 100px;
+}
+
+/*oee and mach man */
+.oee-table {
+  color: var(--title-color);
+  background-color: var(--top-client-table);
+  border-radius: 0.5rem; /* 8px */
+  width: 100%;
+}
+
+.oee-table-th {
+  border-bottom: 2px gray solid;
+}
+.oee-table-td {
+  border-bottom: 1px gray solid;
+  padding: 0.25rem;
+}
+
+.mach-man-table {
+  color: var(--title-color);
+  background-color: var(--top-client-table);
+  border-radius: 0.5rem; /* 8px */
+  width: 100%;
+}
+.mach-man-table-th {
+  border-bottom: 2px gray solid;
+  color: var(--title-color);
+  font-weight: 500;
+}
+.mach-man-table-tr {
+  font-weight: 500;
+}
+.mach-man-table-td {
+  padding-top: 1rem; /* 16px */
+  padding-bottom: 1rem; /* 16px */
+}
+
+.wip-table {
+  color: var(--title-color);
+  background-color: var(--top-client-table);
+  border-radius: 0.5rem; /* 8px */
+  width: 100%;
+}
+
+.wip-th {
+  color: var(--title-color);
+  border-bottom: 2px gray solid;
+  font-weight: 500;
+  padding: 0.4rem 0;
+}
+.wip-td {
+  padding: 0.1rem 0;
+  border-bottom: 1px gray solid;
+  font-size: 18px;
+}
+.wip-tr{
+  padding: 0;
+}
+.scrap-table {
+  color: var(--title-color);
+  background-color: var(--top-client-table);
+  border-radius: 0.5rem; /* 8px */
+  width: 100%;
+}
+.scrap-th {
+  color: var(--title-color);
+  border-bottom: 2px gray solid;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+.scrap-td {
+  padding: 0.4rem 0;
+  border-bottom: 1px gray solid;
+  font-size: 18px;
+}
+.scrap-total-tr {
+  border-top: #066292 4px solid;
+  background-color: #0661926b;
+}
+.scrap-total-td {
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+}
+
+.chart-container {
+  width: 100%;
+}
+.oee-man-mach-gauge {
+  width: 100%;
+
+}
+.oee-man-mach-gauge :nth-child(1){
+  margin-top: -45px;
+  padding:   30px 0;
+}
+.otif-wh-gauge {
+  width: 100%;
+}
+.otif-wh-gauge :nth-child(1){
+  margin-top: -50px;
+  padding:   30px 0;
+}
+
+
+.ElastomerCard {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: black;
+  align-items: center;
+}
+.time {
+  color: white;
+  font-family: "DM Sans", sans-serif;
+  font-size: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+  align-items: center;
+}
+.clock{
+  margin-right: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+.week-date{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 11px;
+}
+.week-date :nth-child(1){
+  font-size: 18px;
+}
+.logo {
+  width: 280px;
+  height: 100%;
+  background-repeat: no-repeat no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.head-title {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+  transform: translateX(-30%);
+}
+.head-title span {
+  font-weight: 300;
+  font-style: italic;
+}
+
+@media screen and (min-width: 1600px) {
+  .card-money {
+    font-weight: 700;
+    font-size: 22px;
+    margin-top: 38px ;
+  }
+  .ul-top-client {
+    margin-bottom: 20px;
+  }
+
+  .wh-utilis :nth-child(2) {
+    align-items: center;
+    margin-top: 30px;
+  }
+  .oee-man-mach-gauge {
+    margin-bottom: -30px;
+  }
+
+  .oee-table-td {
+    border-bottom: 1px gray solid;
+    padding: rem;
+  }
+  .oee-table {
+    font-weight: 700;
+  }
+  .wip-table {
+    margin-bottom: 30px;
+  }
+  .scrap-table{
+    margin-bottom: 30px;
+  }
+  .wip-td {
+    padding: 10px;
+  }
+  .otif-wh-gauge {
+    margin-bottom: -30px;
+  }
+  .otif-wh-gauge :nth-child(1){
+    padding: 0;
+  }
+  .oee-man-mach-gauge {
+    width: 100%;
+  }
+  .oee-man-mach-gauge :nth-child(1){
+    margin-top: 0px;
+    padding:   0px 0;
+  }
+}
+
+
+
+@media screen and (min-width: 1000px) and (max-width: 1600px) {
+  .title {
+    font-size: 22px;
+  }
+
+
+  .ul-top-client-label {
+    color: var(--title-color);
+    width: 100%;
+    padding: 0;
+  }
+  .ul-top-client-label-money {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 1px;
+    width: 100px;
+  }
+}
+@media screen and (min-width: 1000px) and (max-width: 1255px) {
+  .title {
+    font-size: 16px;
+  }
+  .sm-title {
+    font-size: 12px;
+  }
+  .card-money {
+    text-align: center;
+    background-color: rgba(199, 250, 148, 0.918);
+    font-family: "DM Sans", sans-serif;
+    font-weight: 300;
+    color: rgb(1, 94, 1);
+    border-radius: 50px;
+    padding: 2px;
+    font-size: 14px;
+    width: 50%;
+    align-items: center;
+    margin: 25px auto;
+  }
+}

@@ -1,0 +1,178 @@
+:root {
+  --back-color: #2c303d;
+}
+
+[data-theme="light"] {
+  --back-color: #b1b5c3;
+}
+* {
+  transition: 0.4s ease-out;
+}
+
+.main-container {
+  background-color: var(--back-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.div0 {
+  height: 8vh;
+  width: 100%;
+  cursor: pointer;
+}
+.div1 {
+  height: 28vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.div2 {
+  height: 30vh;
+  width: 100%;  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.div3 {
+  height: 31vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.otif-whUtilis {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.otif {
+  width: 37%;
+}
+.otif :nth-child(2){
+  margin-top: -15px;
+}
+
+.wh-utilis {
+  width: 37%;
+}
+.wh-utilis :nth-child(2){
+  margin-top: -15px;
+}
+.month-to-whValue {
+  width: 24%;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+.wh-inputs {
+  height: 100%;
+  width: 49%;
+}
+.weekly-to {
+  width: 40%;
+  height: 100%;
+}
+
+.weekly-fcst {
+  width: 59%;
+  height: 100%;
+}
+
+.monthly-to-wi {
+  width: 69%;
+  height: 100%;
+}
+.fcst-top-client {
+  width: 30%;
+  height: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+  
+ 
+  .main-container {
+    height: auto;
+  }
+  .div1 {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+    width: 100%;
+  }
+  .div2 {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+
+  }
+  .div3 {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+
+  }
+  .otif-whUtilis {
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .otif {
+    width: 100%;
+    height: auto;
+  }
+  .wh-utilis {
+    height: auto;
+    width: 100%;
+    margin-top: 8px;
+
+  }
+  .month-to-whValue {
+    width: 100%;
+    flex-direction: column;
+    margin-top: 8px;
+  }
+  .wh-inputs {
+    width: auto;
+    margin-top: 8px;
+
+  }
+  .weekly-to {
+    width: auto;
+    margin-top: 8px;
+
+  }
+  .weekly-fcst {
+    width: 100%;
+    margin-top: 8px;
+
+  }
+  .monthly-to-wi {
+    width: 100%;
+    margin-top: 8px;
+    
+  }
+  .fcst-top-client {
+    width: 100%;
+    margin-top: 8px;
+  }
+}
+
+@media screen and (min-width:1600px){
+.div2{
+  height: 33vh;
+}
+.div0{
+  height: 6vh;
+}
+}       

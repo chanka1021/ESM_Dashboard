@@ -1,0 +1,178 @@
+.p2-main-container {
+  background-color: var(--back-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+}
+
+.content{
+  height: 92vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.p2-div2 {
+  height: 100%;
+  width: 49%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+/*\\\\\\\\\\OEE/////// */
+.oee {
+  height: 100%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(95, 158, 160, 0.274);
+  padding: 2px;
+  
+}
+.oee-yesterday {
+  width: 100%;
+  height: 49%;
+}
+.oee-today {
+  width: 100%;
+  height: 49%;
+}
+/*\\\\\\\\\MACHINE H/////////*/
+.machH {
+  height: 100%;
+  width: 24%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(226, 32, 32, 0.274);
+  padding: 2px;
+}
+.machH-yesterday{
+  width: 100%;
+  height: 49%;
+}
+.machH-today{
+  width: 100%;
+  height: 49%;
+}
+/*\\\\MAN HR //// */
+.manH{
+  height: 100%;
+  width: 24%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(32, 226, 81, 0.274);
+  padding: 2px;
+}
+.manH-yesterday{
+  width: 100%;
+  height: 49%;
+}
+.manH-today{
+  width: 100%;
+  height: 49%;
+}
+/*\\Scarp & wip//*/
+.scrap-wip{
+  height: 100%;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1px;
+}
+
+.scrap{
+  width: 100%;
+  height: 49%;
+}
+.wip{
+  width: 100%;
+  height: 49%;
+}
+
+
+@media only screen and (max-width: 1000px) {
+.p2-main-container{
+  height: auto;
+  flex-direction: column;
+  width: 100%;
+}
+.content{
+  height: auto;
+  flex-direction: column;
+  width: 100%;
+}
+.p2-div1{
+  width: 100%;
+
+}
+.oee{
+  flex-direction: column;
+  width: 100%;
+
+}
+.oee-today{
+width: 100%;
+margin-top: 8px;
+
+}
+.oee-yesterday{
+  width: 100%;
+
+}
+.machH{
+  flex-direction: column;
+  width: 100%;
+
+}
+.machH-today{
+  width: 100%;
+  margin-top: 8px;
+
+}
+.machH-yesterday {
+  width: 100%;
+  margin-top: 8px;
+
+}
+.p2-div2{
+  width: 100%;
+
+}
+.scrap-wip{
+  flex-direction: column;
+  width: 100%;
+}
+.wip{
+  width: 100%;
+  margin-top: 8px;
+
+}
+.scrap {
+  width: 100%;
+  margin-top: 8px;
+
+}
+.manH{
+  flex-direction: column;
+  width: 100%;
+}
+
+.manH-yesterday{
+  width: 100%;
+  margin-top: 8px;
+
+}
+
+.manH-today{
+  width: 100%;
+  margin-top: 8px;
+}
+}
+
