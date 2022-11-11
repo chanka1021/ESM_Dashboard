@@ -4,10 +4,30 @@ import { Forcast_hist_today, Turnover_KPI_today } from "../../Data/data";
 import "../Cards/style.css";
 import { Font_color, OtifColor } from "../functions";
 export default function OtifChart(props) {
+  //#region  Data import and calcul otif
+  //// Data //////
+  /////// Salido pedido & Qtt SUM  & OTIF CALCUL///////
 
+
+
+  var todayDate = new Date().toISOString().slice(0, 10);
+  
+  const salido_PedidoToday = Forcast_hist_today(todayDate)
+  const QttToday = Turnover_KPI_today(todayDate)
+
+  let sumSalidoPedido = 0;
+  for (let i = 0; i < salido_PedidoToday.length; i++) {
+    sumSalidoPedido += salido_PedidoToday[i]?.salido_Pedido;
+  }
+  let sumTurnoverQTT = 0;
+  for (let i = 0; i < QttToday.length; i++) {
+    sumTurnoverQTT += QttToday[i]?.qtt;
+  }
+  let OTIF = (sumTurnoverQTT / sumSalidoPedido) * 100;
+  //#endregion
 
   ////////design//////////
-const ChartColor = OtifColor(80)
+const ChartColor = OtifColor(OTIF)
 
 
 const font_color = Font_color(props.theme)
@@ -108,7 +128,7 @@ if (props.main) {
         },
         data: [
           {
-            value: 80,
+            value: OTIF,
           },
         ],
       },
@@ -122,7 +142,7 @@ if (props.main) {
         itemStyle: {
           color: ChartColor[0].mainColor,
         },
-        progress: { 
+        progress: {
           show: true,
           width: Chartwidth*0.26,
         },
@@ -147,7 +167,7 @@ if (props.main) {
         },
         data: [
           {
-            value: 70,
+            value: OTIF,
           },
         ],
       },

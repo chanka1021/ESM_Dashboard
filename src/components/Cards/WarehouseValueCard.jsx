@@ -6,7 +6,12 @@ function WarehouseValueCard(props) {
   ////////////////DATA CALCUL/////////////////
 
   const kpi_stock_utilisations = KPI_Stock_Utilisation();
-  let WarehouseValue = 236.80
+  let WarehouseValue = 0;
+  for (let i = 0; i < kpi_stock_utilisations.length; i++) {
+    WarehouseValue +=
+      kpi_stock_utilisations[i].prix_AVG *
+      kpi_stock_utilisations[i].qtt_Box;
+  }
   
   ////Desing //////
   var className = "";

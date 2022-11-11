@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 export default function WarehouseUtilisChart(props) {
   //////////////////Data Calcul///////////////////
-  let Stock_utilisation =99;
+  let Stock_utilisation = (KPI_Stock_Utilisation().length / 7266) * 100;
   ///////////////Design /////////////
   const font_color = Font_color(props.theme);
 

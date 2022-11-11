@@ -9,7 +9,9 @@ function ThisMonthToCard(props) {
   let this_month_Values = Turnover_KPI_month(this_month)
 
 
-  const monthTotalValues = 453.21
+  const monthTotalValues = this_month_Values.reduce((accumulator, object) => {
+    return accumulator + object.total_Value;
+  }, 0);
 ////Desing //////
 var className = "";
 if (props.main) {
