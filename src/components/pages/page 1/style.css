@@ -12,10 +12,12 @@
 .main-container {
   background-color: var(--back-color);
   height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
 
 .div0 {
@@ -29,7 +31,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
 .div2 {
@@ -54,20 +55,17 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+ 
 }
 .otif {
   width: 37%;
 }
-.otif :nth-child(2){
-  margin-top: -15px;
-}
+
 
 .wh-utilis {
   width: 37%;
 }
-.wh-utilis :nth-child(2){
-  margin-top: -15px;
-}
+
 .month-to-whValue {
   width: 24%;
   flex-direction: column;
@@ -77,7 +75,9 @@
 .wh-inputs {
   height: 100%;
   width: 49%;
+ 
 }
+
 .weekly-to {
   width: 40%;
   height: 100%;
@@ -99,7 +99,6 @@
 
 @media only screen and (max-width: 1000px) {
   
- 
   .main-container {
     height: auto;
   }
@@ -175,4 +174,8 @@
 .div0{
   height: 6vh;
 }
-}       
+}      
+
+@media screen and (min-width:3000px){
+ 
+  }  

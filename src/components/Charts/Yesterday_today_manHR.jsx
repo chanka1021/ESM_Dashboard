@@ -3,21 +3,22 @@ import { Wareh_KPI_IN_day } from "../../Data/data";
 import { startOfYesterday } from "date-fns";
 import ReactEChart from "echarts-for-react";
 import styled from "styled-components";
-import { Font_color, ManHColor, ManHrRowColor } from "../functions";
+import { Font_color, formatDate, ManHColor, ManHrRowColor } from "../functions";
 
 function Yesterday_today_manHR(props) {
   /////////////////Data Calcul ///////////////////
   //#region  data
+  /*
   var Mydate;
-  Mydate = '09-08-2022'
-  /*if (props.yesterday === true) {
-    Mydate = new Date(startOfYesterday());
+
+  if (props.yesterday === true) {
+    Mydate = formatDate(new Date(startOfYesterday()));
   } else {
-    Mydate = new Date();
-  }*/
+    Mydate = formatDate(new Date());
+  }
 
   const wareh_kpi_day = Wareh_KPI_IN_day(Mydate);
-  
+
   let sumManHR = 0;
   for (let i = 0; i < wareh_kpi_day.length; i++) {
     sumManHR += wareh_kpi_day[i].manHR;
@@ -33,7 +34,8 @@ function Yesterday_today_manHR(props) {
       return acc;
     }, {})
   );
-  //#endregion
+  //#endregion*/
+  let sumManHR = 515
   ////Design ///
   const font_color = Font_color(props.theme);
   const ChartColor = ManHColor(sumManHR);
@@ -43,13 +45,13 @@ function Yesterday_today_manHR(props) {
     var Chartwidth = 15;
     var distance = -25;
     var className = "f-";
-    var show = false
+    var show = false;
   } else {
     fontSize = 20;
     Chartwidth = 30;
     distance = -40;
     className = "";
-    show = true
+    show = true;
   }
   if (window.screen.width > 1600) {
     show = true;
@@ -67,15 +69,22 @@ function Yesterday_today_manHR(props) {
 
   const Chart = styled.div`
     width: 100%;
-    height: 30%;
-    margin-top: -20px;
+    height: 70%;
     align-items: center;
+    display: flex;
+    justify-content: center;
   `;
 
   const Tablediv = styled.div`
     width: 100%;
-    margin-top: 30%;
+    height : 28%;
+    display: flex;
+    flex-direction : end;
   `;
+    if (window.screen.width > 3000) {
+      Chartwidth = 38;
+      fontSize = 25;
+    }
 
   const eChartsOption = {
     series: [
@@ -210,8 +219,14 @@ function Yesterday_today_manHR(props) {
   return (
     <Mydiv>
       <Chart>
-        <div className={className + "oee-man-mach-gauge"}>
-          <ReactEChart option={eChartsOption} />
+        <div className="oee-man-mach-gauge">
+          <ReactEChart
+            option={eChartsOption}
+            style={{
+              height: "100%",
+              width: "100%",
+            }}
+          />
         </div>
       </Chart>
       <Tablediv>
@@ -230,26 +245,26 @@ function Yesterday_today_manHR(props) {
               <td
                 className={className + "mach-man-table-td"}
                 style={{
-                  backgroundColor: ManHrRowColor(wareh_kpi_man_shift[0]?.Sum),
+                  backgroundColor: ManHrRowColor(106),
                 }}
               >
-                {wareh_kpi_man_shift[0]?.Sum.toFixed(0)}
+                {106}
               </td>
               <td
                 className={className + "mach-man-table-td"}
                 style={{
-                  backgroundColor: ManHrRowColor(wareh_kpi_man_shift[1]?.Sum),
+                  backgroundColor: ManHrRowColor(180),
                 }}
               >
-                {wareh_kpi_man_shift[1]?.Sum.toFixed(0)}
+                {180}
               </td>
               <td
                 className={className + "mach-man-table-td"}
                 style={{
-                  backgroundColor: ManHrRowColor(wareh_kpi_man_shift[2]?.Sum),
+                  backgroundColor: ManHrRowColor(210),
                 }}
               >
-                {wareh_kpi_man_shift[2]?.Sum.toFixed(0)}
+                {210}
               </td>
             </tr>
           </tbody>

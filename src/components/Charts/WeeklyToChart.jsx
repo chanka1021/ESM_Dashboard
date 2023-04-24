@@ -1,15 +1,15 @@
 import React from "react";
-import { useEffect } from "react";
 import Chart from "react-apexcharts";
-import { Turnover_KPI, Turnover_KPI_month, Wareh_KPI_IN, Wareh_KPI_IN_month } from "../../Data/data";
+import { Turnover_KPI_month, Wareh_KPI_IN_month } from "../../Data/data";
 import { Font_color, FormatCash, MergeBy } from "../functions";
 
 export default function WeeklyToChart(props) {
   //#region
   ////////////////Data Calcul//////////////
-  const turnover_kpis = Turnover_KPI_month(8);
-  
-let  this_month = new Date().getMonth()-1
+
+  /*
+let  this_month = new Date().getMonth()+1
+const turnover_kpis = Turnover_KPI_month(9);
   // (month +1 = current month)
 
   var to_thisMonth = [];
@@ -20,7 +20,9 @@ let  this_month = new Date().getMonth()-1
         to_thisMonth[i] = turnover_kpis[i];
       }
   }
-  var wi_thisMonth = Wareh_KPI_IN_month(8);
+
+  var wi_thisMonth = Wareh_KPI_IN_month(9);
+
   //////// weekly values --------
   const to_weekly = Object.values(
     to_thisMonth.reduce((acc, { week_nb, total_Value }) => {
@@ -34,15 +36,17 @@ let  this_month = new Date().getMonth()-1
   );
 
   const wi_weekly = Object.values(
-    wi_thisMonth.reduce((acc, { week_nb, total_value }) => {
-      acc[week_nb] = acc[week_nb] || {
-        week_number: week_nb,
+    wi_thisMonth.reduce((acc, { week_nr, total_value }) => {
+      acc[week_nr] = acc[week_nr] || {
+        week_number: week_nr,
         SumOfTotale_value: 0,
       };
-      acc[week_nb].SumOfTotale_value += total_value;
+      acc[week_nr].SumOfTotale_value += total_value;
       return acc;
     }, {})
   );
+
+
   const Weekly_to_weekNb = [];
   const Weekly_to_values = [];
   const Weekly_wi_values = [];
@@ -54,7 +58,7 @@ let  this_month = new Date().getMonth()-1
   }
 
   //#endregion
-
+*/
 
   /////colors setup
 
@@ -65,20 +69,25 @@ let  this_month = new Date().getMonth()-1
     fontSize = "12px"
   }else{ fontSize = "14px"}
 
-  var chartHeight;
-  var offsetY;
+  var chartHeight  = "100%";
+  var fontSize2= "12px";
+
+  var offsetY =5;
   if (window.screen.width < 1000) {
-    chartHeight = "120%";
+    chartHeight = "110%";
   } else if (window.screen.width > 1600) {
-    chartHeight = "300";
+    chartHeight = "285";
     fontSize ='20px'
     offsetY=20;
+  } 
+  if (window.screen.width > 3000) {
+    chartHeight = "400%";
+    fontSize = "40px";
+    offsetY=30;
+    fontSize2= "24px";
 
-  } else if (window.screen.width > 1000) {
-    chartHeight = "100%";
-    offsetY=5;
+
   }
-
   ////////Chart Render/////////////
   const options = {
     chart: {
@@ -107,9 +116,10 @@ let  this_month = new Date().getMonth()-1
       show : false,
     },
     legend: {
-      fontSize: "13px",
+      fontSize: fontSize2,
       fontFamily: "DM sans, sans-serif",
       fontWeight: "400",
+      position: 'top',
       labels: {
         colors: font_color,
         useSeriesColors: false,
@@ -135,11 +145,11 @@ let  this_month = new Date().getMonth()-1
       colors: ["transparent"],
     },
     xaxis: {
-      categories: Weekly_to_weekNb,
+      categories: [33,34,35,36],
       labels: {
         style: {
           colors: font_color,
-          fontSize: "12px",
+          fontSize: fontSize2,
           fontFamily: "DM sans, sans-serif",
           fontWeight: 500,
         },
@@ -167,12 +177,12 @@ let  this_month = new Date().getMonth()-1
   const series = [
     {
       name: "Weekly TurnOver",
-      data: Weekly_to_values,
+      data: [47,52,8,34],
       color : "#e64141"
     },
     {
       name: "Weekly Warehouse Inputs",
-      data: Weekly_wi_values,
+      data: [99,102,36,22],
       color : "#0eff5e"
     },
   ];

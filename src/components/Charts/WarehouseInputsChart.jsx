@@ -2,14 +2,14 @@ import { endOfWeek, getISOWeek, startOfWeek } from "date-fns";
 import { Wareh_KPI_IN_WEEK } from "../../Data/data";
 import React from "react";
 import Chart from "react-apexcharts";
-import { Font_color, MergeBy } from "../functions";
+import { Font_color, FormatCash, MergeBy } from "../functions";
 
 export default function WarehouseInputsChart(props) {
   ////////////////CALCUL DATA///////
 
-  let this_is_week = getISOWeek(new Date())
-  
-  const wareh_kpi_ins = Wareh_KPI_IN_WEEK('50');
+  let this_is_week = getISOWeek(new Date());
+/*
+  const wareh_kpi_ins = Wareh_KPI_IN_WEEK(50);
   ////// get start and end of week
   const currentWeekStart = startOfWeek(new Date(), { weekStartsOn: 1 });
   const currentWeekEnd = endOfWeek(new Date());
@@ -27,14 +27,32 @@ export default function WarehouseInputsChart(props) {
       wareh_in_weekly[i] = wareh_kpi_ins[i];
     }
   }
-  wareh_in_weekly = wareh_in_weekly.filter((element) => {
+  const arr = wareh_in_weekly.filter((element) => {
     if (Object.keys(element).length !== 0) {
       return true;
     }
     return false;
   });
+
+  let wareh_in_daily = arr.reduce(
+    function (acc, obj) {
+      // for each obj in data
+      if (acc.map.hasOwnProperty(obj.date_KPI)) {
+        // if the map contains an object for the current object's date_KPI
+        acc.map[obj.date_KPI].total_value += +obj.total_value; // then add the current object's total to it
+      } else {
+        // otherwise
+        var newObj = Object.assign({}, obj); // create a new object (a copy of the current object)
+        acc.map[obj.date_KPI] = newObj; // add the new object to both the map
+        acc.data.push(newObj); // ... and the data array
+      }
+      return acc;
+    },
+    { data: [], map: {} }
+  ).data;
+
   ////////////////////////sort Weekly Array by date ////////////////////////////
-  const sortedWareh_in = wareh_in_weekly.sort(
+  const sortedWareh_in = wareh_in_daily.sort(
     (objA, objB) =>
       Number(new Date(objA.date_KPI)) - Number(new Date(objB.date_KPI))
   );
@@ -44,8 +62,7 @@ export default function WarehouseInputsChart(props) {
     sortedWareh_in_values[i] = sortedWareh_in[i].total_value;
   }
 
-
-  /////colors setup 
+  /////colors setup
   const colors = [
     {
       rank: 1,
@@ -75,37 +92,42 @@ export default function WarehouseInputsChart(props) {
     return sorted.indexOf(v) + 1;
   });
 
-const values_rank=[];
-for(let i=0;i<sortedWareh_in_values.length;i++){
-  var obj ={}
-  obj["value"]=sortedWareh_in_values[i]
-  obj['rank']=ranks[i]
-  values_rank.push(obj)
-}
-    
+  const values_rank = [];
+  for (let i = 0; i < sortedWareh_in_values.length; i++) {
+    var obj = {};
+    obj["value"] = sortedWareh_in_values[i];
+    obj["rank"] = ranks[i];
+    values_rank.push(obj);
+  }
 
-const sortedcolors = [];
-for (let i = 0; i < MergeBy("rank",values_rank, colors).length; i++) {
-  sortedcolors[i] = MergeBy("rank",values_rank, colors)[i].color;
-}
+  const sortedcolors = [];
+  for (let i = 0; i < MergeBy("rank", values_rank, colors).length; i++) {
+    sortedcolors[i] = MergeBy("rank", values_rank, colors)[i].color;
+  }
+*/
+  /////////////Design /////////
 
-/////////////Design /////////
-
-const font_color = Font_color(props.theme)
-
+  const font_color = Font_color(props.theme);
 
   var fontSize = null;
-  if(props.main){
-    fontSize = "14px"
-  }else{ fontSize = "16px"}
+  if (props.main) {
+    fontSize = "14px";
+  } else {
+    fontSize = "16px";
+  }
 
-  var chartHeight;
+  var fontSize2 = "14px";
+  var chartHeight = "100%";
   if (window.screen.width < 1000) {
     chartHeight = "100%";
   } else if (window.screen.width > 1650) {
-    chartHeight = "240";
-  } else if (window.screen.width > 1000) {
-    chartHeight = "100%";
+    chartHeight = "150%";
+  }
+  if (window.screen.width > 3000) {
+    chartHeight = "300%";
+    fontSize = "40px";
+  var fontSize2 = "34px";
+
   }
 
   ///////////////////Chart Render /////////////////
@@ -122,7 +144,7 @@ const font_color = Font_color(props.theme)
         labels: {
           style: {
             colors: font_color,
-            fontSize: "12px",
+            fontSize: fontSize2,
             fontFamily: "DM sans, sans-serif",
             fontWeight: 500,
           },
@@ -135,7 +157,8 @@ const font_color = Font_color(props.theme)
         show: false,
       },
       legend: {
-        show: false,},
+        show: false,
+      },
       yaxis: {
         show: false,
       },
@@ -148,7 +171,7 @@ const font_color = Font_color(props.theme)
           },
         },
       },
-      colors: sortedcolors,
+      //colors: sortedcolors,
       dataLabels: {
         enabled: true,
         style: {
@@ -158,14 +181,14 @@ const font_color = Font_color(props.theme)
           fontSize: fontSize,
         },
         formatter: function (value) {
-          return value.toFixed(2) + "K€";
+          return FormatCash(value.toFixed(2)) + "€";
         },
       },
     },
     series = [
       {
         name: "Weekly value",
-        data: sortedWareh_in_values,
+        data: [27354,44444,55555,66666],
       },
     ];
 

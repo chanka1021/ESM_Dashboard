@@ -3,19 +3,19 @@ import ReactEChart from "echarts-for-react";
 import { Wareh_KPI_IN, Wareh_KPI_IN_day } from "../../Data/data";
 import { startOfYesterday } from "date-fns";
 import styled from "styled-components";
-import { Font_color, MachHColor, MachHrRowColor } from "../functions";
+import { Font_color, formatDate, MachHColor, MachHrRowColor } from "../functions";
 
 function Yesterday_today_machineH(props) {
   //#region data
   ////Data Calcul ////////
-
+/*
   var Mydate;
-  Mydate = '09-08-2022'
-  /*if (props.yesterday === true) {
-    Mydate = new Date(startOfYesterday());
+  
+  if (props.yesterday === true) {
+    Mydate = formatDate(new Date(startOfYesterday()));
   } else {
-    Mydate = new Date();
-  }*/
+    Mydate = formatDate(new Date());
+  }
 
   const wareh_kpi_day = Wareh_KPI_IN_day(Mydate);
 
@@ -34,8 +34,8 @@ function Yesterday_today_machineH(props) {
       return acc;
     }, {})
   );
-  //#endregion
-
+  //#endregion*/
+let sumMachHR = 135;
   ////Design ///
   const font_color = Font_color(props.theme)
   const ChartColor = MachHColor(sumMachHR);
@@ -58,6 +58,10 @@ function Yesterday_today_machineH(props) {
     show = true;
   }
   
+  if (window.screen.width > 3000) {
+    Chartwidth = 38;
+    fontSize = 25;
+  }
 
 
   ///////////////CHART RENDER  /////////
@@ -73,14 +77,17 @@ function Yesterday_today_machineH(props) {
 
   const Chart = styled.div`
     width: 100%;
-    height: 30%;
-    margin-top: -20px;
+    height: 70%;
     align-items: center;
+    display: flex;
+    justify-content: center;
   `;
 
   const Tablediv = styled.div`
     width: 100%;
-    margin-top: 30%;
+    height : 28%;
+    display: flex;
+    flex-direction : end;
   `;
 
 const eChartsOption = {
@@ -215,8 +222,11 @@ const eChartsOption = {
   return (
     <Mydiv>
       <Chart>
-        <div className={className + "oee-man-mach-gauge"}>
-          <ReactEChart option={eChartsOption} />
+        <div className="oee-man-mach-gauge">
+          <ReactEChart option={eChartsOption}   style={{
+          height: "100%",
+          width: "100%",
+        }}/>
         </div>
       </Chart>
       <Tablediv>
@@ -232,9 +242,9 @@ const eChartsOption = {
           <tbody>
             <tr className={className+"mach-man-table-tr"}>
               <td className={className+"mach-man-table-td"}>NB-H</td>
-              <td className={className+"mach-man-table-td"} style={{backgroundColor: MachHrRowColor(wareh_kpi_mach_shift[0]?.Sum)}}>{wareh_kpi_mach_shift[0]?.Sum.toFixed(0)}</td>
-              <td className={className+"mach-man-table-td"} style={{backgroundColor: MachHrRowColor(wareh_kpi_mach_shift[1]?.Sum)}}>{wareh_kpi_mach_shift[1]?.Sum.toFixed(0)}</td>
-              <td className={className+"mach-man-table-td"} style={{backgroundColor: MachHrRowColor(wareh_kpi_mach_shift[2]?.Sum)}}>{wareh_kpi_mach_shift[2]?.Sum.toFixed(0)}</td>
+              <td className={className+"mach-man-table-td"} style={{backgroundColor: MachHrRowColor(57)}}>{57}</td>
+              <td className={className+"mach-man-table-td"} style={{backgroundColor: MachHrRowColor(70)}}>{70}</td>
+              <td className={className+"mach-man-table-td"} style={{backgroundColor: MachHrRowColor(85)}}>{85}</td>
             </tr>
           </tbody>
         </table>

@@ -4,7 +4,7 @@ import { FormatCash } from "../functions";
 
 function WarehouseValueCard(props) {
   ////////////////DATA CALCUL/////////////////
-
+/*
   const kpi_stock_utilisations = KPI_Stock_Utilisation();
   let WarehouseValue = 0;
   for (let i = 0; i < kpi_stock_utilisations.length; i++) {
@@ -12,7 +12,7 @@ function WarehouseValueCard(props) {
       kpi_stock_utilisations[i].prix_AVG *
       kpi_stock_utilisations[i].qtt_Box;
   }
-  
+  */
   ////Desing //////
   var className = "";
   if (props.main) {
@@ -24,7 +24,7 @@ function WarehouseValueCard(props) {
       <p className={className+"sm-title"}>
         Warehoue <span>Value</span>{" "}
       </p>
-      <div className={className+"card-money"}>{FormatCash(WarehouseValue)}€</div>
+      <div className={className+"card-money"}>{FormatCash(427.37)}€</div>
     </div>
   );
 }

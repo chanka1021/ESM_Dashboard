@@ -4,7 +4,6 @@ import useLocalStorage from "use-local-storage";
 import "./style2.css";
 import MachHTodayYesterdayCard from "../../Cards/MachHTodayYesterdayCard";
 import ManHTodayYesterdayCard from "../../Cards/ManHTodayYesterdayCard";
-import WipCard from "../../Cards/WipCard";
 import ScrapCard from "../../Cards/ScrapCard";
 import ElastomerCard from "../../Cards/ElastomerCard";
 
@@ -69,7 +68,7 @@ function Page2() {
           </div>
           <div className="manH-today">
             <ManHTodayYesterdayCard
-              yesterday={true}
+              yesterday={false}
               theme={theme}
               color="#88ff00"
               title="Today's"
@@ -81,7 +80,6 @@ function Page2() {
             <ScrapCard/>
           </div>
           <div className="wip">
-            <WipCard/> 
           </div>
         </div>
     </div>

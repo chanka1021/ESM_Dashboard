@@ -7,7 +7,8 @@ import '../Cards/style.css'
 
 export default function TopClientTableChart(props) {
   //#region Data Calcul
-  const kpi_forcast = KPI_FORCAST();
+  
+  /*const kpi_forcast = KPI_FORCAST();
   //////////// values of Next 2 Months ////////////////
   const arr = kpi_forcast.filter(
     (x) =>
@@ -51,6 +52,10 @@ const handleCheck = (event) => {
   setSelectedIds(selectedIds_array);
 };
 props.setSelectedIds(selectedIds)
+*/
+let top_9_Clients = ['Cars company fast','BK company x9','Cars AThletic  Gmbh','Achraf Cars 1937','GT race 1']
+let top_9_Clients_values = [700000,400000,300000,200000,500000]
+
 ////Desgin ////
 var className = "";
 if (props.main) {
@@ -60,47 +65,42 @@ if (props.main) {
  ///////////////Render Chart ///////////////////
   return (<>
 
-<div>
+<div className={className+"top-clients-table"}>
 
 <ul className="ul-top-client">
     <li className={className+"li-top-client"}>
         <div class="flex items-center pl-3">
-            <input  onChange={handleCheck} id={top_9_Clients[0]?.code_client} type="checkbox" value="" />
             <p className="top-client-label"></p>
-            <label  className={className+"ul-top-client-label"}>{top_9_Clients[0]?.name}</label>
-            <label className={className+"ul-top-client-label-money"}> {FormatCash(top_9_Clients[0]?.SumOfTotale_value) } </label>
+            <label  className={className+"ul-top-client-label"}>{top_9_Clients[0]}</label>
+            <label className={className+"ul-top-client-label-money"}> {FormatCash(top_9_Clients_values[0])+'€' } </label>
         </div>
     </li>
     <li className={className+"li-top-client"}>
         <div class="flex items-center pl-3">
-            <input onChange={handleCheck} id={top_9_Clients[1]?.code_client} type="checkbox" value=""/>
             <p className="top-client-label"></p>          
-            <label className={className+"ul-top-client-label"}>{top_9_Clients[1]?.name}</label>
-            <label className={className+"ul-top-client-label-money"}> {FormatCash(top_9_Clients[1]?.SumOfTotale_value) } </label>
+            <label className={className+"ul-top-client-label"}>{top_9_Clients[1]}</label>
+            <label className={className+"ul-top-client-label-money"}> {FormatCash(top_9_Clients_values[1])+'€' } </label>
         </div>
     </li>
     <li className={className+"li-top-client"}>
         <div class="flex items-center pl-3">
-            <input onChange={handleCheck} id={top_9_Clients[2]?.code_client} type="checkbox" value="" />
             <p className="top-client-label"></p>         
-            <label className={className+"ul-top-client-label"}>{top_9_Clients[2]?.name}</label>
-            <label className={className+"ul-top-client-label-money"}> {FormatCash(top_9_Clients[2]?.SumOfTotale_value) } </label>
+            <label className={className+"ul-top-client-label"}>{top_9_Clients[2]}</label>
+            <label className={className+"ul-top-client-label-money"}> {FormatCash(top_9_Clients_values[2])+'€' } </label>
         </div>
     </li>
     <li className={className+"li-top-client"}>
         <div class="flex items-center pl-3">
-            <input onChange={handleCheck} id={top_9_Clients[3]?.code_client} type="checkbox" value="" />
             <p className="top-client-label"></p>
-            <label className={className+"ul-top-client-label"}>{top_9_Clients[3]?.name}</label>
-            <label className={className+"ul-top-client-label-money"}> {FormatCash(top_9_Clients[3]?.SumOfTotale_value) } </label>
+            <label className={className+"ul-top-client-label"}>{top_9_Clients[3]}</label>
+            <label className={className+"ul-top-client-label-money"}> {FormatCash(top_9_Clients_values[3])+'€' } </label>
         </div>
     </li>
     <li className={className+"li-top-client"}>
         <div class="flex items-center pl-3">
-            <input onChange={handleCheck} id={top_9_Clients[4]?.code_client} type="checkbox" value="" />
             <p className="top-client-label"></p>         
-            <label className={className+"ul-top-client-label"}>{top_9_Clients[4]?.name}</label>
-            <label className={className+"ul-top-client-label-money"}> {FormatCash(top_9_Clients[4]?.SumOfTotale_value) } </label>
+            <label className={className+"ul-top-client-label"}>{top_9_Clients[4]}</label>
+            <label className={className+"ul-top-client-label-money"}> {FormatCash(top_9_Clients_values[4]) +'€'} </label>
         </div>
     </li>
 </ul>

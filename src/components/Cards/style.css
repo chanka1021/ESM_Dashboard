@@ -8,11 +8,11 @@
   --container-color: #fff;
   --title-color: #242731;
   --top-client-table: #d3d3d3;
-  --title-back-color: #c0c0c0;
+  --title-back-color: #ceeff7;
 }
-.f-div0{
+.f-div0 {
   width: 100%;
-  height: 6vh;
+  height: 5vh;
   cursor: pointer;
 }
 .container {
@@ -26,7 +26,6 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 0%;
-  overflow: hidden;
 }
 .sm-card-container {
   background-color: var(--container-color);
@@ -71,7 +70,14 @@
   align-items: center;
   margin-top: 17px;
 }
-
+.top-clients-table{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+  justify-content: start;
+}
 .ul-top-client {
   background-color: var(--top-client-table);
   border-radius: 15px;
@@ -164,7 +170,7 @@
   border-bottom: 1px gray solid;
   font-size: 18px;
 }
-.wip-tr{
+.wip-tr {
   padding: 0;
 }
 .scrap-table {
@@ -198,21 +204,13 @@
 }
 .oee-man-mach-gauge {
   width: 100%;
+  height: 100%;
+}
 
-}
-.oee-man-mach-gauge :nth-child(1){
-  margin-top: -45px;
-  padding:   30px 0;
-}
 .otif-wh-gauge {
   width: 100%;
+  height: 80%;
 }
-.otif-wh-gauge :nth-child(1){
-  margin-top: -50px;
-  padding:   30px 0;
-}
-
-
 .ElastomerCard {
   height: 100%;
   width: 100%;
@@ -231,20 +229,20 @@
   margin-right: 20px;
   align-items: center;
 }
-.clock{
+.clock {
   margin-right: 8px;
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   letter-spacing: 1px;
 }
-.week-date{
+.week-date {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   font-size: 11px;
 }
-.week-date :nth-child(1){
+.week-date :nth-child(1) {
   font-size: 18px;
 }
 .logo {
@@ -271,20 +269,12 @@
   .card-money {
     font-weight: 700;
     font-size: 22px;
-    margin-top: 38px ;
+    margin-top: 38px;
   }
   .ul-top-client {
     margin-bottom: 20px;
-  }
 
-  .wh-utilis :nth-child(2) {
-    align-items: center;
-    margin-top: 30px;
   }
-  .oee-man-mach-gauge {
-    margin-bottom: -30px;
-  }
-
   .oee-table-td {
     border-bottom: 1px gray solid;
     padding: rem;
@@ -295,35 +285,22 @@
   .wip-table {
     margin-bottom: 30px;
   }
-  .scrap-table{
+  .scrap-table {
     margin-bottom: 30px;
   }
   .wip-td {
     padding: 10px;
   }
-  .otif-wh-gauge {
-    margin-bottom: -30px;
-  }
-  .otif-wh-gauge :nth-child(1){
-    padding: 0;
-  }
   .oee-man-mach-gauge {
     width: 100%;
   }
-  .oee-man-mach-gauge :nth-child(1){
-    margin-top: 0px;
-    padding:   0px 0;
-  }
 }
-
 
 
 @media screen and (min-width: 1000px) and (max-width: 1600px) {
   .title {
     font-size: 22px;
   }
-
-
   .ul-top-client-label {
     color: var(--title-color);
     width: 100%;
@@ -356,4 +333,53 @@
     align-items: center;
     margin: 25px auto;
   }
+}
+
+@media screen and (min-width :3000px){
+  .ul-top-client-label {
+    padding-top:1rem;
+    padding-bottom:1rem;
+    margin-left:1rem;
+  }
+  .li-top-client {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom: 2px rgba(128, 128, 128, 0.685) solid;
+  }
+  .top-clients-label {
+    color: #747474;
+    font-size: 19px;
+    width: 35px;
+  }
+  .top-clients-table{
+    font-size: 27px;
+  }
+  .title {
+    font-size: 35px;
+  }
+  .sm-title {
+    font-size: 28px;
+  }
+  .card-money {
+    font-size: 32px;
+    align-items: center;
+    margin-top: 20%;
+  }
+  .logo {
+    width: 480px;
+    height: 100%;
+  }
+  .clock {
+    font-size: 32px;
+  }
+  .week-date {
+    font-size: 18px;
+  }
+  .week-date :nth-child(1) {
+    font-size: 18px;
+  }
+  .head-title {
+    font-size: 34px;
+  }
+
 }

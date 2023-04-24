@@ -8,18 +8,18 @@ export default function MonthlyToWiChart(props) {
  
 
   /////////////////////////////////////////data Calcul /////////////////////////
-const arr= Monthly_To_Wi();
+//const arr= Monthly_To_Wi();
   ///split for the chart
-  const months = [];
-  const budgets = [];
-  const TO = [];
-  const WI = [];
-  for (let i = 0; i < arr.length; i++) {
+  let months = [1,2,3,4,5,6,7,8,9];
+  const TO = [10,20,30,10,20,30,10,20,30];
+  const WI = [15,25,35,15,25,35,15,25,35];
+  const budgets = [20,30,40,20,30,40,20,30,40]
+ /* for (let i = 0; i < arr.length; i++) {
     months.push(arr[i].month);
     budgets.push(arr[i].budget);
     TO.push(arr[i].to_);
     WI.push(arr[i].wi_);
-  }
+  }*/
   //#endregion
   ////Desgin
   var fontSize = null;
@@ -33,14 +33,20 @@ const font_color = Font_color(props.theme)
     fontSize = "14px";
   }
 
-  var chartHeight;
+  var chartHeight = '100%';
+  var offsetY = 10;
+
   if (window.screen.width < 1000) {
     chartHeight = "120%";
+    fontSize ='10px'
+
   } else if (window.screen.width > 1650) {
-    chartHeight = "300";
-    fontSize ='20px'
-  } else if (window.screen.width > 1000) {
-    chartHeight = "100%";
+    chartHeight = "180%";
+    fontSize ='15px'
+  }  if (window.screen.width > 3000) {
+    chartHeight = "400%";
+    fontSize ='32px'
+    offsetY = 20
   }
 
   //////Render Chart /////////
@@ -67,9 +73,10 @@ const font_color = Font_color(props.theme)
       show: false,
     },
     legend: {
-      fontSize: "14px",
+      fontSize: fontSize,
       fontFamily: "DM sans, sans-serif",
       fontWeight: "700",
+      position: "top",
       labels: {
         colors: font_color,
         useSeriesColors: false,
@@ -77,7 +84,7 @@ const font_color = Font_color(props.theme)
     },
     dataLabels: {
       enabled: true,
-      offsetY: 5,
+      offsetY: offsetY,
       formatter: function (value) {
         return FormatCash(value);
       },
@@ -101,7 +108,7 @@ const font_color = Font_color(props.theme)
         },
         style: {
           colors: font_color,
-          fontSize: "12px",
+          fontSize: fontSize,
           fontFamily: "DM sans, sans-serif",
           fontWeight: 500,
         },

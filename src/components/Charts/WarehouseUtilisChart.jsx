@@ -6,27 +6,30 @@ import { useEffect } from "react";
 
 export default function WarehouseUtilisChart(props) {
   //////////////////Data Calcul///////////////////
-  let Stock_utilisation = (KPI_Stock_Utilisation().length / 7266) * 100;
+  /*
+  let Stock_utilisation = (KPI_Stock_Utilisation().length / 7266) * 100;*/
   ///////////////Design /////////////
   const font_color = Font_color(props.theme);
-
-  const ChartColor = WarehUtilisColor(Stock_utilisation)
 
 
   if (props.main) {
     var fontSize = 15;
     var Chartwidth = 15;
     var distance = -25;
+    var className = "f-";
   } else {
     fontSize = 20;
     Chartwidth = 30;
     distance = -40;
+    className = "";
   }
+  if (window.screen.width > 3000) {
+    Chartwidth = 55;
+    fontSize = 33;
+  }
+let Stock_utilisation = 99
+const ChartColor = WarehUtilisColor(Stock_utilisation);
 
-  var className = "";
-  if (props.main) {
-    className = "f-";
-  } else className = "";
   ////////Chart render///////////
   const eChartsOption = {
     series: [
@@ -77,7 +80,7 @@ export default function WarehouseUtilisChart(props) {
           show: false,
           distance: distance + 5,
           color: font_color,
-          fontSize: fontSize - 1,
+          fontSize: fontSize - 2,
         },
         anchor: {
           show: false,
@@ -111,7 +114,7 @@ export default function WarehouseUtilisChart(props) {
         },
         data: [
           {
-            value: Stock_utilisation,
+            value: 99,
           },
         ],
       },
@@ -149,15 +152,21 @@ export default function WarehouseUtilisChart(props) {
         },
         data: [
           {
-            value: Stock_utilisation,
+            value: 99,
           },
         ],
       },
     ],
   };
   return (
-    <div className={className + "otif-wh-gauge"}>
-      <ReactEChart width={"300"} option={eChartsOption} />
+    <div className="otif-wh-gauge">
+      <ReactEChart
+        option={eChartsOption}
+        style={{
+          height: "100%",
+          width: "100%",
+        }}
+      />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import WhScrap from "../Charts/WhScrap";
 
-function WhScrapCard(props) {
+function WhCard(props) {
   var className = "";
   if (props.main) {
     className = "f-";
@@ -15,4 +15,4 @@ function WhScrapCard(props) {
   );
 }
 
-export default WhScrapCard;
+export default WhCard;

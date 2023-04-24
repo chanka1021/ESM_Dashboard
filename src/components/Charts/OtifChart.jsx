@@ -7,13 +7,10 @@ export default function OtifChart(props) {
   //#region  Data import and calcul otif
   //// Data //////
   /////// Salido pedido & Qtt SUM  & OTIF CALCUL///////
-
-
-
+/*
   var todayDate = new Date().toISOString().slice(0, 10);
-  
-  const salido_PedidoToday = Forcast_hist_today(todayDate)
-  const QttToday = Turnover_KPI_today(todayDate)
+  const salido_PedidoToday = Forcast_hist_today(todayDate);
+  const QttToday = Turnover_KPI_today(todayDate);
 
   let sumSalidoPedido = 0;
   for (let i = 0; i < salido_PedidoToday.length; i++) {
@@ -25,25 +22,27 @@ export default function OtifChart(props) {
   }
   let OTIF = (sumTurnoverQTT / sumSalidoPedido) * 100;
   //#endregion
-
+*/
+let OTIF = 78;
   ////////design//////////
-const ChartColor = OtifColor(OTIF)
+  const ChartColor = OtifColor(OTIF);
+  const font_color = Font_color(props.theme);
+  if (props.main) {
+    var fontSize = 15;
+    var Chartwidth = 15;
+    var distance = -25;
+    var className = "f-";
+  } else {
+    fontSize = 20;
+    Chartwidth = 30;
+    distance = -40;
+    className = "";
+  }
+  if (window.screen.width > 3000) {
+    Chartwidth = 55;
+    fontSize = 33;
 
-
-const font_color = Font_color(props.theme)
-if (props.main) {
-  var fontSize = 15;
-  var Chartwidth = 15;
-  var distance =-25
-  var className = "f-"
-
-} else {
-  fontSize = 20;
-  Chartwidth = 30;
-  distance =-40
-   className = ""
-}
-
+  }
   ////////////////////Chart Render ////////////
   const eChartsOption = {
     series: [
@@ -91,10 +90,10 @@ if (props.main) {
           },
         },
         axisLabel: {
-          show : false,
-          distance:  distance+5,
+          show: false,
+          distance: distance + 5,
           color: font_color,
-          fontSize: fontSize-2,
+          fontSize: fontSize - 2,
         },
         anchor: {
           show: false,
@@ -128,7 +127,7 @@ if (props.main) {
         },
         data: [
           {
-            value: OTIF,
+            value: 78,
           },
         ],
       },
@@ -144,11 +143,10 @@ if (props.main) {
         },
         progress: {
           show: true,
-          width: Chartwidth*0.26,
+          width: Chartwidth * 0.26,
         },
         pointer: {
           show: false,
-
         },
         axisLine: {
           show: false,
@@ -167,16 +165,21 @@ if (props.main) {
         },
         data: [
           {
-            value: OTIF,
+            value: 85,
           },
         ],
       },
     ],
   };
   return (
-    <div className={className+"otif-wh-gauge"}>
-      {" "}
-      <ReactEChart option={eChartsOption} />{" "}
+    <div className="otif-wh-gauge">
+      <ReactEChart
+        option={eChartsOption}
+        style={{
+          height: "100%",
+          width: "100%",
+        }}
+      />
     </div>
   );
 }

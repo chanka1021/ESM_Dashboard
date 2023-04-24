@@ -1,4 +1,5 @@
 import { color } from "echarts";
+import { addMonths, startOfWeek } from "date-fns";
 
 export function FormatCash(n) {
   if (n < 1e3) return n;
@@ -24,7 +25,24 @@ export function ToMonthName(monthNumber) {
     month: "long",
   });
 }
+export function DateInext2Months(date) {
+  if (date >= startOfWeek(new Date()) && date <= addMonths(new Date(), 2)) {
+    return true;
+  } else return false;
+}
+export function formatDate(date) {
+  var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
 
+  if (month.length < 2) 
+      month = '0' + month;
+  if (day.length < 2) 
+      day = '0' + day;
+
+  return [year, month, day].join('-');
+}
 export function ScrapRowColor(n) {
   if (n < 30) {
     return "#01f04560";
@@ -198,4 +216,11 @@ export function WarehUtilisColor(x) {
 
   colors.push(obj);
   return colors;
+}
+
+export function UndifinedCheck (data) {
+ var dd
+  data > 'undefined' ?
+  dd = '' : dd = data 
+ return dd
 }

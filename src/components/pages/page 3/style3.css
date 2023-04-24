@@ -10,7 +10,7 @@
 .Content {
   display: flex;
   flex-direction: row;
-  height: 92vh;
+  height: 94.5vh;
   width: 100%;
 }
 .kpi {
@@ -42,14 +42,13 @@
   justify-content: space-between;
   padding: 0%;
   overflow: hidden;
-
 }
 .f-title {
   color: var(--title-color);
   font-family: "DM Sans", sans-serif;
   font-weight: 700;
   font-size: 15px;
-  padding-top: 2px;
+  padding-top: 1px;
   width: 100%;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
@@ -66,6 +65,7 @@
   text-align: center;
   border-radius: 20px;
   align-items: center;
+  overflow: hidden;
 }
 
 .f-sm-title {
@@ -74,7 +74,7 @@
   font-family: "DM Sans", sans-serif;
   font-weight: 700;
   font-size: 12px;
-  padding-top: 5px;
+  margin-top: -2px;
 }
 
 .f-card-money {
@@ -86,7 +86,14 @@
   align-items: center;
   margin-top: 22px;
 }
-
+.f-top-clients-table{
+  width: 100%;
+  height: 100%;
+  display: flex;  
+  flex-direction: column;
+  margin-top: 10%;
+  justify-content: start;
+}
 .f-ul-top-client-label {
   color: var(--title-color);
   font-weight: 400;
@@ -118,7 +125,6 @@
   border-radius: 0.5rem; /* 8px */
   width: 100%;
   font-size: 9px;
-  margin-bottom: 10px;
 }
 
 .f-oee-table-td {
@@ -145,26 +151,6 @@
   width: 49%;
   height: 100%;
 }
-
-.f-oee-man-mach-gauge {
-  width: 50%;
-  align-items: center;
-  margin-left: 25%;
-  margin-top: -125px;
-  padding: 14px;
-}
-
-.f-otif-wh-gauge{
-  width: 100%;
-  padding: 0;
-
-}
-.f-otif-wh-gauge :nth-child(1){
-  margin-top: -65px;
-  padding:  75px 0;
-
-  }
-
 .f-machH {
   height: 23%;
   width: 100%;
@@ -213,7 +199,7 @@
 }
 .f-scrap {
   height: 100%;
-  width: 49%;
+  width: 100%;
 }
 
 .f-mach-man-table {
@@ -222,7 +208,6 @@
   border-radius: 0.5rem; /* 8px */
   width: 100%;
   font-size: 9px;
-  margin-top: -34px;
 }
 
 .f-mach-man-table-th {
@@ -266,27 +251,32 @@
 }
 .f-scrap-th {
   color: var(--title-color);
-  border-bottom: 1px gray solid;
+  border : 1px   #005F81 solid;
   font-weight: 500;
   padding: 0;
   font-size: 12px;
 }
 .f-scrap-td {
   padding: 0;
-  border-bottom: 1px gray solid;
+  border: 1px #005F81 solid;
   font-size: 11px;
+
 }
 .f-scrap-total-tr {
-  border-top: #066292 2px solid;
-  background-color: #0661927e;
+  background-color: #b3b3cf;
+  border-radius: 15px;
+}
+.f-scrap-total-tr1 {
+  color: #D0D0D1 ;
+  background-color: #005F81;
   border-radius: 15px;
 }
 .f-scrap-total-td {
   font-family: "DM Sans", sans-serif;
   font-weight: 600;
   font-size: 12px;
+  border: 2px #D0D0D1 solid;
 }
-
 .f-ElastomerCard {
   height: 100%;
   width: 100%;
@@ -356,14 +346,7 @@
   .f-oee-table-td {
     padding: 0.25rem;
   }
- 
-  .f-oee-man-mach-gauge {
-    width: 67%;
-    align-items: center;
-    margin-left: 70px;
-    margin-top: -78px;
-    padding: 14px;
-  }
+
   .f-card-money {
     font-size: 20px;
     margin-top: 40px;
@@ -425,12 +408,8 @@
     width: 100px;
     margin: auto;
   }
-  .f-otif-wh-gauge{
-    width: 100%;
-  }
-  .f-otif-wh-gauge :nth-child(1){
-    padding: 0;
-  }
+
+
 }
 
 @media screen and (max-width: 1000px) {
@@ -504,7 +483,76 @@
     margin-left: 0%;
     margin-top: -105px;
     margin-bottom: -90px;
-    border: 1px solid red;
   }
 
+}
+
+@media screen and (min-width : 3000px){
+  .f-title {
+    font-size: 30px;
+  }
+  .f-sm-title {
+    font-size: 22px;
+  }
+  .f-card-money {
+    font-size: 30px;
+    margin-top: 25%;
+  }
+  .f-ul-top-client-label {
+    margin-top:1rem;
+    margin-bottom:1rem;
+    margin-left:1rem;
+    font-size: 24px;
+
+  }
+  .f-li-top-client {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom: 2px rgba(128, 128, 128, 0.685) solid;
+  }
+  .f-top-clients-label {
+    color: #747474;
+    font-size: 19px;
+    width: 35px;
+  }
+  .f-top-clients-table{
+    font-size: 47px;
+  }
+
+  .f-oee-table{
+    font-size: 24px;
+  }
+  .f-mach-man-table{
+    font-size: 24px;
+  }
+  .f-scrap-td {
+    font-size: 30px;
+  }
+  .f-scrap-total-td {
+    font-size: 30px;
+  }
+  .f-scrap-th{
+    font-size: 27px;
+  }
+  .f-card-money {
+    font-size: 42px;
+    align-items: center;
+    margin-top: 30%;
+  }
+  .f-logo {
+    width: 480px;
+    height: 100%;
+  }
+  .f-clock {
+    font-size: 32px;
+  }
+  .f-week-date {
+    font-size: 18px;
+  }
+  .f-week-date :nth-child(1) {
+    font-size: 18px;
+  }
+  .f-head-title {
+    font-size: 34px;
+  }
 }

@@ -15,7 +15,6 @@ import WarehouseValueCard from "../../Cards/WarehouseValueCard";
 import WarehousUtilisCard from "../../Cards/WarehousUtilisCard";
 import WeeklyFcstCard from "../../Cards/WeeklyFcstCard";
 import WeeklyToCard from "../../Cards/WeeklyToCard";
-import WipCard from "../../Cards/WipCard";
 import Page1 from "../page 1/page1";
 import Page2 from "../page 2/page2";
 
@@ -124,7 +123,7 @@ function Page3(props) {
           </div>
           <div className="f-manH-today">
             <ManHTodayYesterdayCard
-              yesterday={true}
+              yesterday={false}
               theme={theme}
               color="#88ff00"
               title="Today's"
@@ -135,9 +134,6 @@ function Page3(props) {
           <div className="f-scrap-wip">
           <div className="f-scrap">
             <ScrapCard main />
-          </div>
-          <div className="f-wip">
-            <WipCard main/> 
           </div>
           </div>
         </div>

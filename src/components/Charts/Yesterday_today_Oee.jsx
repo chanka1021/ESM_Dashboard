@@ -4,22 +4,23 @@ import ReactEChart from "echarts-for-react";
 import { startOfYesterday } from "date-fns";
 import styled from "styled-components";
 import "../Cards/style.css";
-import { Font_color, OeeRowColor ,OeeColor} from "../functions";
+import { Font_color,formatDate, OeeRowColor ,OeeColor, UndifinedCheck} from "../functions";
 
 function Yesterday_today_Oee(props) {
   //#region  data calcul
   ///////////////////////Data Calcul //////////////////////////
+  /*
   var Mydate;
-  Mydate = '09-08-2022'
-  /*if (props.yesterday === true) {
-    Mydate = new Date(startOfYesterday());
+ 
+  if (props.yesterday === true) {
+    Mydate = formatDate(new Date(startOfYesterday()));
   } else {
-    Mydate = new Date();
-  }*/
+    Mydate = formatDate(new Date());
+  }
 
   const working_mach = Working_Mach_day(Mydate);
   const kpi_data_prod = Kpi_Data_Prod_day(Mydate);
-  //#region Oee
+   //#region Oee
 
   //////////////Mw Calcul /////////
   let MW = 0;
@@ -48,16 +49,19 @@ function Yesterday_today_Oee(props) {
   //////W-T
 
   const w_t_today = kpi_data_prod
+
+  
   const w_t = Object.values(
-    w_t_today.reduce((acc, { shift, wT_H }) => {
+    w_t_today.reduce((acc, { shift, c_T_Stand,production }) => {
       acc[shift] = acc[shift] || {
         shift: shift,
         Sum: 0,
       };
-      acc[shift].Sum += wT_H;
+      acc[shift].Sum += (c_T_Stand * production)/60 ;
       return acc;
     }, {})
   );
+
   w_t.sort(
     (objA, objB) => Number(new Date(objA.shift)) - Number(new Date(objB.shift))
   );
@@ -71,12 +75,13 @@ function Yesterday_today_Oee(props) {
   for (let i = 0; i < kpi_data_prod.length; i++) {
       var obj = {};
       obj["ct_X_production"] =
-        kpi_data_prod[i].c_T_Stand * kpi_data_prod[i].production;
+       (kpi_data_prod[i].c_T_Stand * kpi_data_prod[i].production);
       obj["shift"] = kpi_data_prod[i].shift;
       ct_x_prod_day.push(obj);
       ct_x_prod_day.push(obj);
     
   }
+
 
   const ct_p = Object.values(
     ct_x_prod_day.reduce((acc, { shift, ct_X_production }) => {
@@ -88,6 +93,7 @@ function Yesterday_today_Oee(props) {
       return acc;
     }, {})
   );
+
   const OEEs = [];
   for (let i = 0; i < ct_p.length; i++) {
     var obj1 = {};
@@ -101,14 +107,16 @@ function Yesterday_today_Oee(props) {
   for (let i = 0; i < OEEs.length; i++) {
     var obj2 = {};
     obj2["shift"] = OEEs[i].shift;
-    obj2["oee"] = OEEs[i]?.oee;
+    obj2["oee"] = OEEs[i]?.oee; 
     obj2["n_mach"] = n_Mach_day[i].nr_machine;
     obj2["w_t"] = w_t[i].Sum;
     Oee_shifts.push(obj2);
   }
+*/
   //#endregion
 
   ////Design ///
+  let oee=80
   const font_color = Font_color(props.theme);
   const ChartColor = OeeColor(oee);
 
@@ -129,25 +137,32 @@ function Yesterday_today_Oee(props) {
   if (window.screen.width > 1600) {
     show = true;
   }
+  if (window.screen.width > 3000) {
+    Chartwidth = 38;
+    fontSize = 25;
+  }
 
   /////Chart render /////////
 
   const Mydiv = styled.div`
-    height: 90%;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
   `;
   const Tablediv = styled.div`
     width: 100%;
+    height : 40%;
+    display: flex;
+    flex-direction : end;
   `;
   const Chart = styled.div`
-    width: 100%;
-    height: 45%;
-    margin-top: -20px;
-    align-items: center;
+    height : 60%;
+    width : 100%;
+    display: flex;
+    justify-content: center;
   `;
   const eChartsOption = {
     series: [
@@ -282,8 +297,12 @@ function Yesterday_today_Oee(props) {
   return (
     <Mydiv>
       <Chart>
-        <div className={className + "oee-man-mach-gauge"}>
-          <ReactEChart option={eChartsOption} />
+        <div className="oee-man-mach-gauge">
+          <ReactEChart option={eChartsOption}  style={{
+          height: "100%",
+          width: "100%",
+        }}/>
+
         </div>
       </Chart>{" "}
       <Tablediv>
@@ -301,40 +320,40 @@ function Yesterday_today_Oee(props) {
               <td className={className + "oee-table-td"}>OEE</td>
               <td
                 className={className + "oee-table-td"}
-                style={{ backgroundColor: OeeRowColor(Oee_shifts[0]?.oee) }}
+                style={{ backgroundColor: OeeRowColor(81.55) }}
               >
-                {Oee_shifts[0]?.oee.toFixed(2) + "%"}
+                {UndifinedCheck(81.55.toFixed(2) + "%")}
               </td>
               <td
                 className={className + "oee-table-td"}
-                style={{ backgroundColor: OeeRowColor(Oee_shifts[1]?.oee) }}
+                style={{ backgroundColor: OeeRowColor(80.55) }}
               >
-                {Oee_shifts[1]?.oee.toFixed(2) + "%"}
+                {UndifinedCheck(80.55.toFixed(2) + "%")}
               </td>
               <td
                 className={className + "oee-table-td"}
-                style={{ backgroundColor: OeeRowColor(Oee_shifts[2]?.oee) }}
-              >
-                {Oee_shifts[2]?.oee.toFixed(2) + "%"}
+                style={{ backgroundColor: OeeRowColor(78.22) }}
+              > 
+                {UndifinedCheck(78.22.toFixed(2) + "%")}
               </td>
             </tr>
             <tr className="oee-table-tr">
               <td className={className + "oee-table-td"}>N-MACH</td>
               <td className={className + "oee-table-td"}>
-                {Oee_shifts[0]?.n_mach}
+                {13}
               </td>
               <td className={className + "oee-table-td"}>
-                {Oee_shifts[1]?.n_mach}
+                {13}
               </td>
               <td className={className + "oee-table-td"}>
-                {Oee_shifts[2]?.n_mach}
+                {15}
               </td>
             </tr>
             <tr className="oee-table-tr">
               <td>W-T</td>
-              <td>{Oee_shifts[0]?.w_t.toFixed(2)}</td>
-              <td>{Oee_shifts[1]?.w_t.toFixed(2)}</td>
-              <td>{Oee_shifts[2]?.w_t.toFixed(2)}</td>
+              <td>{93.20}</td>
+              <td>{70.10}</td>
+              <td>{19.37}</td>
             </tr>
           </tbody>
         </table>
