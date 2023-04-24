@@ -19,7 +19,7 @@ function ElastomerCard(props) {
         style={{ backgroundImage: `url(${logo})` }}
       ></div>
       <div className={className + "head-title"}>
-        ESM <span>Dashboard</span>
+        ESM<span>Dashboard</span>
       </div>
       <div className={className + "time"}>
         <div className={className+"clock"}>
